@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 bg-calculator shadow-lg">
+      <div class="row">
+        <div class="col-md-10 helper">
+          <div class="float-right">&nbsp; {{ input }}</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2 btn btn-danger" (click)="allClear()">C</div>
+        <div class="col-2 btn btn-info" (click)="clear()">Del</div>
+        <div class="col-2 btn btn-primary" (click)="pressOperator('+')">+</div>
+        <div class="col-2 btn btn-primary" (click)="pressOperator('-')">-</div>
+      </div>
+      <div class="row">
+        <div class="col-2 btn btn-secondary" (click)="onPress('1')">1</div>
+        <div class="col-2 btn btn-secondary" (click)="onPress('2')">2</div>
+        <div class="col-2 btn btn-secondary" (click)="onPress('3')">3</div>
+        <div class="col-2 btn btn-primary" (click)="pressOperator('/')">/</div>
+      </div>
+      <div class="row">
+        <div class="col-2 btn btn-secondary" (click)="onPress('4')">4</div>
+        <div class="col-2 btn btn-secondary" (click)="onPress('5')">5</div>
+        <div class="col-2 btn btn-secondary" (click)="onPress('6')">6</div>
+        <div class="col-2 btn btn-primary" (click)="pressOperator('*')">*</div>
+      </div>
+      <div class="row">
+        <div class="col-2 btn btn-secondary" (click)="onPress('7')">7</div>
+        <div class="col-2 btn btn-secondary" (click)="onPress('8')">8</div>
+        <div class="col-2 btn btn-secondary" (click)="onPress('9')">9</div>
+        <div class="col-2 btn btn-success" (click)="getAnswer()">=</div>
+      </div>
+      <div class="row">
+        <div class="col-2 btn btn-secondary" (click)="onPress('.')">.</div>
+        <div class="col-2 btn btn-secondary" (click)="onPress('0')">0</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="log-container">
+        <table class="table table-sm table-dark" *ngIf="logs.length > 0">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">History</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr   *ngFor="let log of logs">
+              <td scope="row">{{ log.count }}</td>
+              <th>{{ log.calculation }}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
